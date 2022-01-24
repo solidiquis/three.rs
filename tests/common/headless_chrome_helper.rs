@@ -19,10 +19,10 @@ impl HeadlessChromeHelper {
     /// If wasmModule is set, a timeout error will be raised via Wait's default settings.
     pub fn nav_to<S: AsRef<str>>(&self, path: S) -> Result<Arc<Tab>, String>  {
         let tab = self.0.wait_for_initial_tab()
-            .or_else(|err| Err(format!["HeadlessChromeHelper#nav_to failed with err: {}", err]))?;
+            .or_else(|err| Err(format!["HeadlessChromeHelper#nav_to failed to wait for initial tab with err: {}", err]))?;
 
         tab.navigate_to(path.as_ref())
-            .or_else(|err| Err(format!["HeadlessChromeHelper#nav_to failed with err: {}", err]))?;
+            .or_else(|err| Err(format!["HeadlessChromeHelper#nav_to failed navigate to {} with err: {}", &path.as_ref(), err]))?;
 
         let tab_ref = &tab;
 
