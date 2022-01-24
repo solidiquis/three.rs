@@ -4,4 +4,4 @@ pkg
 .DS_Store
 Cargo.lock
 package-lock.json
-logs
+logs/*
