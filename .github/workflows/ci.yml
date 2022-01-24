@@ -30,4 +30,4 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-      - run: BACKTRACE=20 bash scripts/test
+      - run: RUST_BACKTRACE=20 BACKTRACE=20 bash scripts/test

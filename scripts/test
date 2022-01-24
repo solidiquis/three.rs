@@ -47,6 +47,7 @@ cargo test || test_failure=true
 kill %1
 
 if [ "$test_failure" = true ]; then
+  echo "Printing test logs with a backtrace of ${BACKTRACE}..."
   tail -$BACKTRACE logs/test.log
   exit 1
 fi
