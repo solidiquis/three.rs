@@ -40,17 +40,13 @@ while true; do
   sleep 0.5
 done
 
-# Run tests
-cargo test
-
-# Get exit status of `cargo test`.
-status=$?
+test_failure=false
+cargo test || test_failure=true
 
 # Gracefully shutdown webpack.
 kill %1
 
-# Output test logs if test failure.
-if [ $status -eq 1 ]; then
+if [ "$test_failure" = true ]; then
   tail -$BACKTRACE logs/test.log
   exit 1
 fi
