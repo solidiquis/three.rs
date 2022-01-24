@@ -5,26 +5,27 @@ use serde_json::value::Value;
 use std::sync::Arc;
 use std::error::Error;
 
-/// Simple wrapper around headless chrome that takes care of the tedious task
-/// of checking to see when WASM module is finished downloading.
-pub struct HeadlessChromeHelper(Browser);
+pub struct HeadlessChromeHelper {
+    pub browser: Browser,
+    pub tab: Arc<Tab>
+}
 
 impl HeadlessChromeHelper {
-    pub fn new() -> Result<Self, Box<dyn Error>> {
-        let browser = Browser::default()?;
-        Ok(Self(browser))
-    }
+    pub fn new() -> Result<Self, String> {
+        let browser = Browser::default()
+            .or_else(|err| Err(format!["Failed to launch headless chrome with err: {}", err]))?;
 
-    /// Navigates to path and waits until wasmModule is successfully instantiated.
-    /// If wasmModule is set, a timeout error will be raised via Wait's default settings.
-    pub fn nav_to<S: AsRef<str>>(&self, path: S) -> Result<Arc<Tab>, String>  {
-        let tab = self.0.wait_for_initial_tab()
+        let tab = browser.wait_for_initial_tab()
             .or_else(|err| Err(format!["HeadlessChromeHelper#nav_to failed to wait for initial tab with err: {}", err]))?;
 
-        tab.navigate_to(path.as_ref())
+        Ok(Self { browser, tab })
+    }
+
+    pub fn navigate_to<S: AsRef<str>>(&self, path: S) -> Result<(), String> {
+        self.tab.navigate_to(path.as_ref())
             .or_else(|err| Err(format!["HeadlessChromeHelper#nav_to failed navigate to {} with err: {}", &path.as_ref(), err]))?;
 
-        let tab_ref = &tab;
+        let tab_ref = &self.tab;
 
         match Wait::default().until(|| {
             match tab_ref.evaluate("window.wasmModule != undefined", false) {
@@ -39,7 +40,7 @@ impl HeadlessChromeHelper {
             _ => ()
         }
 
-        Ok(tab)
+        Ok(())
     }
 }
 
