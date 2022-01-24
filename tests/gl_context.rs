@@ -1,13 +1,12 @@
 mod common;
-use common::{logger, headless_chrome_helper, webpack_dev_server};
+use common::{logger, headless_chrome_helper};
 use std::error::Error;
 
 #[test]
 fn test_gl_context() {
-    let webpack_dev_server = webpack_dev_server::WebpackDevServer::default();
     logger::init_logger();
 
-    let result = match run_test(&webpack_dev_server) {
+    let result = match run_test() {
         Ok(i) => i,
         Err(e) => {
             log::error!("Test failed with err: {}", e);
@@ -15,13 +14,10 @@ fn test_gl_context() {
         }
     };
 
-    webpack_dev_server.kill();
     assert!(result);
 }
 
-fn run_test(webpack_dev_server: &webpack_dev_server::WebpackDevServer) -> Result<bool, Box<dyn Error>> {
-    webpack_dev_server.init()?;
-
+fn run_test() -> Result<bool, Box<dyn Error>> {
     let chrome = headless_chrome_helper::HeadlessChromeHelper::new()?;
     let tab = chrome.nav_to("http://localhost:8080")?;
 

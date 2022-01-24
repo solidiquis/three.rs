@@ -1,7 +1,56 @@
 #!/bin/bash
 
-if [ -z $BACKTRACE ]; then
+# Sets the default backtrace line count.
+if [[ -z $BACKTRACE ]]; then
   BACKTRACE=5
 fi
 
-cargo test || tail -$BACKTRACE logs/test.log && exit 1
+# Sets the default timeout in seconds for webpack compilation.
+if [[ -z $TIMEOUT ]]; then
+  TIMEOUT=10
+fi
+
+if [[ ! -z $(lsof -wni tcp:8080) ]]; then
+  echo "ERROR: There is already a process listening on port 8080 for TCP."
+  echo "Exiting with status code 1."
+  exit 1
+fi
+
+rm -rf pkg && mkdir pkg
+
+# Run webpack dev server in background.
+npm run dev 2>&1 > /dev/null &
+
+t_i=$(date +%s)
+
+# Poll the pkg folder to see if webpack has finished compiling.
+while true; do
+  # Has webpack finished compiling?
+  if [[ ! -z $(ls pkg) ]]; then
+    break
+  fi
+  t_j=$(date +%s)
+  delta=$(( $t_j - $t_i ))
+
+  if [[ $delta -gt 10 ]]; then
+    echo "Webpack is taking too long to compile."
+    exit 1
+  fi
+
+  sleep 0.5
+done
+
+# Run tests
+cargo test
+
+# Get exit status of `cargo test`.
+status=$?
+
+# Gracefully shutdown webpack.
+kill %1
+
+# Output test logs if test failure.
+if [ $status -eq 1 ]; then
+  tail -$BACKTRACE logs/test.log
+  exit 1
+fi
