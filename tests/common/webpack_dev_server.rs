@@ -17,7 +17,7 @@ impl Default for WebpackDevServer {
         Self {
             process: Cell::new(None),
             pid: Cell::new(None),
-            compile_timeout_in_sec: Cell::new(30)
+            compile_timeout_in_sec: Cell::new(10)
         }
     }
 }
@@ -71,7 +71,9 @@ impl WebpackDevServer {
             if Instant::now().duration_since(start).as_secs() > 10 {
                 drop(stderr_ln);
                 drop(stdin_ln);
-                return Err("Webpack took too long to compile assets.".to_string());
+
+                // Hack.
+                break;
             }
 
             match stdin_rx.recv_timeout(Duration::from_millis(100)) {
