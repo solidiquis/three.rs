@@ -4,4 +4,4 @@ if [ -z $BACKTRACE ]; then
   BACKTRACE=5
 fi
 
-cargo test || tail -$BACKTRACE logs/test.log
+cargo test || tail -$BACKTRACE logs/test.log && exit 1

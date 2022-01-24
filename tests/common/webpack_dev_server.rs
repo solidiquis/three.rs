@@ -17,7 +17,7 @@ impl Default for WebpackDevServer {
         Self {
             process: Cell::new(None),
             pid: Cell::new(None),
-            compile_timeout_in_sec: Cell::new(10)
+            compile_timeout_in_sec: Cell::new(30)
         }
     }
 }
