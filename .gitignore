@@ -5,3 +5,4 @@ index.html
 .DS_Store
 Cargo.lock
 package-lock.json
+logs
