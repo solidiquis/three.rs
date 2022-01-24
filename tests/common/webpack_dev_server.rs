@@ -91,14 +91,11 @@ impl WebpackDevServer {
         Ok(())
     }
 
-    pub fn kill(&self) -> Result<(), String> {
-        self.process
-            .replace(None)
-            .unwrap()
-            .kill()
-            .or_else(|err| Err(format!["Failed to kill process {} with err: {}", self.pid.get().unwrap(), err]))?;
-
-        Ok(())
+    pub fn kill(&self) {
+        match self.process.replace(None) {
+            Some(mut p) => p.kill().unwrap_or(()),
+            None => ()
+        };
     }
 
     pub fn set_timeout_in_secs(&self, timeout_in_sec: u8) {

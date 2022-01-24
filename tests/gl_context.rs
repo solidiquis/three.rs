@@ -15,7 +15,7 @@ fn test_gl_context() {
         }
     };
 
-    webpack_dev_server.kill().unwrap();
+    webpack_dev_server.kill();
     assert!(result);
 }
 

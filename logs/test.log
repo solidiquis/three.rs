@@ -12,3 +12,29 @@
 [INFO|2022-01-23T17:06:43.453830-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/mod.rs:342] - Finished browser's event handling loop
 [INFO|2022-01-23T17:06:43.458791-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/mod.rs:353] - dropping transport
 [INFO|2022-01-23T17:06:43.458847-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/web_socket_connection.rs:126] - dropping websocket connection
+[INFO|2022-01-23T17:14:31.212406-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/process.rs:257] - Launching Chrome binary at "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+[INFO|2022-01-23T17:14:31.213796-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/process.rs:162] - Started Chrome. PID: 22289
+[INFO|2022-01-23T17:14:32.125721-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/tab/mod.rs:320] - Navigating a tab to http://localhost:8080
+[INFO|2022-01-23T17:14:33.139645-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/mod.rs:366] - Dropping browser
+[INFO|2022-01-23T17:14:33.139737-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/process.rs:54] - Killing Chrome. PID: 22289
+[INFO|2022-01-23T17:14:33.139756-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/web_socket_connection.rs:99] - Sending shutdown message to message handling loop
+[INFO|2022-01-23T17:14:33.139791-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/mod.rs:264] - Received shutdown message
+[INFO|2022-01-23T17:14:33.139808-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/mod.rs:337] - Shutting down message handling loop
+[INFO|2022-01-23T17:14:33.139857-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/mod.rs:346] - cleared listeners, I think
+[INFO|2022-01-23T17:14:33.139883-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/mod.rs:342] - Finished browser's event handling loop
+[INFO|2022-01-23T17:14:33.141643-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/tab/mod.rs:278] - finished tab's event handling loop
+[INFO|2022-01-23T17:14:33.144874-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/mod.rs:353] - dropping transport
+[INFO|2022-01-23T17:14:33.144920-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/web_socket_connection.rs:126] - dropping websocket connection
+[INFO|2022-01-23T17:19:47.445796-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/process.rs:257] - Launching Chrome binary at "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+[INFO|2022-01-23T17:19:47.447598-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/process.rs:162] - Started Chrome. PID: 22679
+[INFO|2022-01-23T17:19:48.327287-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/tab/mod.rs:320] - Navigating a tab to http://localhost:8080
+[INFO|2022-01-23T17:19:49.274069-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/mod.rs:366] - Dropping browser
+[INFO|2022-01-23T17:19:49.274151-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/process.rs:54] - Killing Chrome. PID: 22679
+[INFO|2022-01-23T17:19:49.274177-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/web_socket_connection.rs:99] - Sending shutdown message to message handling loop
+[INFO|2022-01-23T17:19:49.274253-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/mod.rs:264] - Received shutdown message
+[INFO|2022-01-23T17:19:49.274283-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/mod.rs:337] - Shutting down message handling loop
+[INFO|2022-01-23T17:19:49.274310-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/mod.rs:346] - cleared listeners, I think
+[INFO|2022-01-23T17:19:49.274340-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/tab/mod.rs:278] - finished tab's event handling loop
+[INFO|2022-01-23T17:19:49.276028-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/mod.rs:342] - Finished browser's event handling loop
+[INFO|2022-01-23T17:19:49.278936-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/mod.rs:353] - dropping transport
+[INFO|2022-01-23T17:19:49.278969-08:00|/Users/benjaminnguyen/.cargo/registry/src/github.com-1ecc6299db9ec823/headless_chrome-0.9.0/src/browser/transport/web_socket_connection.rs:126] - dropping websocket connection
